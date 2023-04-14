@@ -46,7 +46,12 @@ public final class PersonWarehouse implements Iterable<Person> {
         Set<String> unique = new HashSet<>();
         return people.stream().filter(Objects::nonNull)
                 .filter(person -> unique.add(person.getName()));
+
     }
+    // can also use:
+    // return people.stream().map(Person::getName).distinct()
+    // .map(name -> people.stream().filter(person -> person.getName().equals(name))
+    // .findFirst().get());
 
 
     /**
@@ -72,14 +77,16 @@ public final class PersonWarehouse implements Iterable<Person> {
      * @return a mapping of Person Id to the respective Person name
      */ // TODO
     public Map<Long, String> getIdToNameMap() {
-        return null;
+        //collecting key and values;
+        return people.stream()
+                .collect(Collectors.toMap(Person::getPersonalId, Person::getName));
     }
-
 
     /**
      * @return Stream of Stream of Aliases
      */ // TODO
     public Stream<Stream<String>> getNestedAliases() {
+
         return null;
     }
 
