@@ -57,7 +57,8 @@ public class StreamFilter {
      * @return a list of person object whose name starts with `this.startingCharacter`
      */ //TODO
     public List<Person> toListMultiLine() {
-        return null;
+        return personStream.filter(person -> person.getName()
+                .startsWith(startingCharacter)).collect(Collectors.toList());
     }
 
 
@@ -66,7 +67,8 @@ public class StreamFilter {
      * @return a list of person objects whose name starts with `this.startingCharacter`
      */ //TODO
     public List<Person> toListOneLine() {
-        return null;
+        return personStream.filter(person -> person.getName()
+                .startsWith(startingCharacter)).collect(Collectors.toList());
     }
 
 
@@ -75,16 +77,16 @@ public class StreamFilter {
      * @return an array of person object whose name starts with `this.startingCharacter`
      */ //TODO
     public Person[] toArrayOneLine() {
-        return null;
+        // already have list, use to Array.
+        return toListOneLine().toArray(new Person[0]);
     }
-
 
     /**
      * Using multi-line lambda syntax
      * @return an array of person object whose name starts with `this.startingCharacter`
      */ //TODO
     public Person[] toArrayMultiLine() {
-        return null;
+        return toListOneLine().toArray(new Person[0]);
     }
 
 }
