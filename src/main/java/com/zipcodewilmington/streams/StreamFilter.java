@@ -86,7 +86,7 @@ public class StreamFilter {
      * @return an array of person object whose name starts with `this.startingCharacter`
      */ //TODO
     public Person[] toArrayMultiLine() {
-        return toListOneLine().toArray(new Person[0]);
+        return toListMultiLine().toArray(new Person[0]);
     }
 
 }
