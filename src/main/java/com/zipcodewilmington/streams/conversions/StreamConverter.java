@@ -25,16 +25,16 @@ public final class StreamConverter extends PersonConversionAgent<Stream<Person>>
 
     // TODO
     public List<Person> toList() {
-        return objectSequence.collect(Collectors.toList());
+        return personList;
     }
 
     // TODO
     public Stream<Person> toStream() {
-        return super.objectSequence;
+        return personList.stream();
     }
 
     // TODO
     public Person[] toArray() {
-        return toList().toArray(new Person[0]);
+        return personList.toArray(new Person[0]);
     }
 }
